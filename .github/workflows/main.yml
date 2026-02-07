@@ -7,15 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # 这里指定了我们要用 Windows 系统
-
+    runs-on: windows-latest  
     steps:
     - uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10' # 指定 Python 版本
+        python-version: '3.10' 
 
     - name: Install dependencies
       run: |
@@ -24,7 +23,7 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --noconsole --name HugSimulator hug_sim.py
+        pyinstaller --onefile --noconsole --name HugBB hugbb_v0.py
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
